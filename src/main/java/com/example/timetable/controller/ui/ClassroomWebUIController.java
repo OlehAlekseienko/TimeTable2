@@ -24,7 +24,8 @@ public class ClassroomWebUIController {
     );
     @RequestMapping("/ui/crooms")
     String getAll(Model model){
-        System.out.println("HI");
+        System.out.println("Pampers");
+        model.addAttribute("rooms",classrooms);
         return "classrooms";
     }
 }

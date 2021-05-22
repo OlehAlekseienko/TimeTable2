@@ -1,3 +1,4 @@
+<#import "/spring.ftl" as spring/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,16 +13,13 @@
         <th>Name</th>
         <th>Capacity</th>
     </tr>
+    <#list rooms as room>
     <tr>
-        <td>01</td>
-        <td>Ekomom</td>
-        <td>1</td>
+        <td>${room.id}</td>
+        <td>${room.name}</td>
+        <td>${room.capacity}</td>
     </tr>
-    <tr>
-        <td>02</td>
-        <td>Luxe</td>
-        <td>2</td>
-    </tr>
+    </#list>
 </table>
 </body>
 </html>
