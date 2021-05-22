@@ -2,17 +2,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <meta charset="UTF-8">
     <title>Rooms</title>
 </head>
 <body>
 <h3>List of Rooms</h3>
-<table style="width:40%" border="3px">
-    <tr>
-        <th>ID</th>
+<table class="table table-sm">
+    <thead class="table-dark">
+
+    <th>ID</th>
         <th>Name</th>
         <th>Capacity</th>
-    </tr>
+    </thead>
     <#list rooms as room>
     <tr>
         <td>${room.id}</td>
