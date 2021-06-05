@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 @Service
 public class ClassroomService {
     private List<Classroom> classrooms;
+    private List<Classroom> classrooms2;
 
     @PostConstruct
     void init(){
@@ -25,16 +26,17 @@ public class ClassroomService {
                         new Classroom("6", "Mmelogy", 666)
                 )
         );
+        classrooms2 = classrooms;
     }
-
-    private List<Classroom> classrooms2 = classrooms;
 
     public List<Classroom> getAll() {
         return classrooms;
     }
 
-    public List<Classroom> reNew(){
-        return classrooms2;
+    public void reNew(){
+        classrooms = classrooms2;
+        System.out.println(classrooms.size());
+        System.out.println(classrooms2.size());
     }
 
     public void delete(String id) {
