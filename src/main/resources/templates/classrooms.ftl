@@ -18,17 +18,20 @@
         <th>Name</th>
         <th>Capacity</th>
         <th>Delete</th>
+        <th>Update</th>
     </thead>
     <#list rooms as room>
     <tr>
         <td>${room.id}</td>
         <td>${room.name}</td>
         <td>${room.capacity}</td>
-        <td><button><a href="/ui/rooms/delete/${room.id}">Delete</a></button></td>
+        <td><button type="button" class="btn btn-danger"><a href="/ui/rooms/delete/${room.id}">Delete</a></button></td>
+        <td><button type="button" class="btn btn-success"><a href="/ui/rooms/update/${room.id}">Update</a></button></td>
     </tr>
     </#list>
 </table>
 <center><button><a href="/index.html">Return</a></button></center>
 <center><button><a href="/ui/rooms/ReNew">ReNew</a></button></center>
+<center><button><a href="/ui/rooms/create">Create</a></button></center>
 </body>
 </html>

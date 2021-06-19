@@ -1,26 +1,11 @@
-package com.example.timetable.model;
+package com.example.timetable.form;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
-
-public class Classroom {
+public class RoomForm {
     private String id;
     private String name;
     private Integer capacity;
 
-    public Classroom(String id, String name, Integer capacity) {
-        this.id = id;
-        this.name = name;
-        this.capacity = capacity;
-    }
-
-    public Classroom() {
-    }
-
-    @Override
-    public String toString() {
-        return "Classroom{}";
+    public RoomForm() {
     }
 
     public String getId() {
@@ -45,6 +30,15 @@ public class Classroom {
 
     public void setCapacity(Integer capacity) {
         this.capacity = capacity;
+    }
+
+    @Override
+    public String toString() {
+        return "RoomForm{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", capacity=" + capacity +
+                '}';
     }
 
 }

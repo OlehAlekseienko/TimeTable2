@@ -1,20 +1,20 @@
 package com.example.timetable.controller.ui;
 
+import com.example.timetable.form.RoomForm;
 import com.example.timetable.model.Classroom;
 import com.example.timetable.services.classroom.ClassroomService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 @Controller
-@RequestMapping("/ui/rooms")
+    @RequestMapping("/ui/rooms")
 public class ClassroomWebUIController {
 
     @Autowired
@@ -41,4 +41,21 @@ public class ClassroomWebUIController {
         model.addAttribute("rooms",service.getAll());
         return "classrooms";
     }
+    @GetMapping("/create")
+    String create(Model model){
+        RoomForm roomForm = new RoomForm();
+        model.addAttribute("form" , roomForm );
+        return "createroom";
+    }
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    String create(Model model,
+                  RoomForm form){
+        System.out.println("hello");
+        Classroom classroom = new Classroom();
+        classroom.setName(form.getName());
+        classroom.setCapacity(form.getCapacity());
+        service.create(classroom);
+        model.addAttribute("rooms",service.getAll());
+        return "classrooms";
+        }
 }

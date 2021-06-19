@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -42,5 +43,11 @@ public class ClassroomService {
     public void delete(String id) {
         classrooms = classrooms.stream().filter(room->!room.getId().equals(id))
                 .collect(Collectors.toList());
+    }
+
+    public void create(Classroom classroom) {
+        String id = UUID.randomUUID().toString();
+        classroom.setId(id);
+        classrooms.add(classroom);
     }
 }
