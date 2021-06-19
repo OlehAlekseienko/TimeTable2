@@ -58,4 +58,28 @@ public class ClassroomWebUIController {
         model.addAttribute("rooms",service.getAll());
         return "classrooms";
         }
+
+    @GetMapping("/update/{id}")
+    String update(Model model, @PathVariable("id") String id){
+        Classroom classroom = service.get(id);
+        RoomForm roomForm = new RoomForm();
+        roomForm.setId(classroom.getId());
+        roomForm.setName(classroom.getName());
+        roomForm.setCapacity(classroom.getCapacity());
+        model.addAttribute("form" , roomForm );
+        return "update";
+    }
+
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    String update(Model model,
+                  RoomForm form){
+        System.out.println("hello");
+        Classroom classroom = new Classroom();
+        classroom.setName(form.getName());
+        classroom.setCapacity(form.getCapacity());
+        classroom.setId(form.getId());
+        service.update(classroom);
+        model.addAttribute("rooms",service.getAll());
+        return "classrooms";
+    }
 }

@@ -25,8 +25,8 @@
         <td>${room.id}</td>
         <td>${room.name}</td>
         <td>${room.capacity}</td>
-        <td><button type="button" class="btn btn-danger"><a href="/ui/rooms/delete/${room.id}">Delete</a></button></td>
-        <td><button type="button" class="btn btn-success"><a href="/ui/rooms/update/${room.id}">Update</a></button></td>
+        <td><a href="/ui/rooms/delete/${room.id}"><button type="button" class="btn btn-danger">Delete</button> </a></td>
+        <td><a href="/ui/rooms/update/${room.id}"><button type="button" class="btn btn-success">Update</button> </a></td>
     </tr>
     </#list>
 </table>

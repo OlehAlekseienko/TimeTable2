@@ -50,4 +50,19 @@ public class ClassroomService {
         classroom.setId(id);
         classrooms.add(classroom);
     }
+
+    public Classroom get(String id) {
+        Classroom classroom = classrooms.stream()
+                .filter(el->el.getId().equals(id))
+                .findAny().get();
+        return classroom;
+    }
+
+    public void update(Classroom classroom) {
+        String id = classroom.getId();
+        Classroom room = get(id);
+        int index = classrooms.indexOf(room);
+        classrooms.remove(room);
+        classrooms.add(index, classroom);
+    }
 }
